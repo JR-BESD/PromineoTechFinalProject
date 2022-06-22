@@ -2,7 +2,6 @@ package com.promineotech.timeline.service;
 
 import java.util.List;
 import com.promineotech.timeline.entity.Event;
-import com.promineotech.timeline.entity.EventRelationship;
 
 /**
  * @author JamesR
@@ -29,7 +28,7 @@ public interface EventService {
    * @param eventRelationship
    * @return
    */
-  Event createEvent(EventRelationship eventRelationship);
+  Event createEvent(Event event);
 
   /**
    * @param eventRelationship

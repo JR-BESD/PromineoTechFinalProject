@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.promineotech.timeline.entity.Event;
-import com.promineotech.timeline.entity.EventRelationship;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -129,7 +128,7 @@ public interface EventController {
               description = "The created Event is returned",
               content = @Content(
                   mediaType = "application/json",
-                  schema = @Schema(implementation = EventRelationship.class))),
+                  schema = @Schema(implementation = Event.class))),
           @ApiResponse(
               responseCode = "400",
               description = "The request parameters are invalid",
@@ -155,7 +154,7 @@ public interface EventController {
   //@formatter:on
   @PostMapping
   @ResponseStatus(code = HttpStatus.CREATED)
-  Event createEvent(@Valid @RequestBody EventRelationship eventRelationship);
+  Event createEvent(@Valid @RequestBody Event event);
 
   //@formatter:off
   @Operation(
@@ -167,7 +166,7 @@ public interface EventController {
               description = "The event has been updated",
               content = @Content(
                   mediaType = "application/json",
-                  schema = @Schema(implementation = EventRelationship.class))),
+                  schema = @Schema(implementation = Event.class))),
           @ApiResponse(
               responseCode = "400",
               description = "The request parameters are invalid",

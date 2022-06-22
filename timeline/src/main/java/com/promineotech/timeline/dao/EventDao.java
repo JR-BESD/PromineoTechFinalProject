@@ -28,7 +28,7 @@ public interface EventDao {
    * @param event
    * @return
    */
-  Event saveEvent(String eventName, String eventDesc, String timelineDate, List<String> domains,
+  Event saveEvent(String eventName, String eventDesc, Long timelineDate, List<String> domains,
       List<String> people);
 
   /**
@@ -59,7 +59,7 @@ public interface EventDao {
    * @param timelineDate
    * @return
    */
-  Optional<String> fetchTimelineDate(String timelineDate);
+  Optional<Long> fetchTimelineDate(Long timelineDate);
 
   /**
    * 

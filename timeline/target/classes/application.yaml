@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: ravenloft
+    username: timeline
+    url: jdbc:mysql://localhost:3306/timeline
+
+logging:
+  level:
+    root: warn
+    '[com.promineotech]': debug

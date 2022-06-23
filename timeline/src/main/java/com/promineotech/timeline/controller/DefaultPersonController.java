@@ -16,7 +16,10 @@ public class DefaultPersonController implements PersonController {
   
   @Autowired
   private PersonService personService;
-
+  
+  /**
+   * Controller: Create new Person
+   */
   @Override
   public Person createPerson(Person person) {
     log.debug("Person={}", person);

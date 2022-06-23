@@ -19,6 +19,9 @@ public class DefaultPersonDao implements PersonDao {
   @Autowired
   private NamedParameterJdbcTemplate jdbcTemplate;
 
+  /**
+   * DAO: Save new Person
+   */
   @Override
   public Person savePerson(String name, String race, String description, String domain) {
     SqlParams params = generateInsertSql(name, race, description, domain);
@@ -27,7 +30,7 @@ public class DefaultPersonDao implements PersonDao {
     jdbcTemplate.update(params.sql, params.source, keyHolder);
 
     Long personId = keyHolder.getKey().longValue();
-  
+
 
   //@formatter:off
     return Person.builder()
@@ -94,5 +97,4 @@ public class DefaultPersonDao implements PersonDao {
     String sql;
     MapSqlParameterSource source = new MapSqlParameterSource();
   }
-
 }

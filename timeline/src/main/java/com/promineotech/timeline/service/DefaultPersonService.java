@@ -17,7 +17,9 @@ public class DefaultPersonService implements PersonService {
   @Autowired
   private PersonDao personDao;
   
-  
+  /**
+   * SERVICE: Create new Person
+   */
   @Transactional
   @Override
   public Person createPerson(Person person) {
@@ -29,7 +31,6 @@ public class DefaultPersonService implements PersonService {
     return personDao.savePerson(name, race, description, domain);
   }
 
-
   /**
    * @param person
    * @return
@@ -39,7 +40,6 @@ public class DefaultPersonService implements PersonService {
         .orElseThrow(() -> new NoSuchElementException(
             "Domain Lord with Name=" + person.getName() + " was not found"));
   }
-
 
   /**
    * @param person
@@ -51,7 +51,6 @@ public class DefaultPersonService implements PersonService {
             "Domain Lord with Name=" + person.getRace() + " was not found"));
   }
 
-
   /**
    * @param person
    * @return
@@ -62,7 +61,6 @@ public class DefaultPersonService implements PersonService {
             "Domain Lord with Name=" + person.getDescription() + " was not found"));
   }
 
-
   /**
    * @param person
    * @return
@@ -72,5 +70,4 @@ public class DefaultPersonService implements PersonService {
         .orElseThrow(() -> new NoSuchElementException(
             "Domain Lord with Name=" + person.getDomain() + " was not found"));
   }
-
 }

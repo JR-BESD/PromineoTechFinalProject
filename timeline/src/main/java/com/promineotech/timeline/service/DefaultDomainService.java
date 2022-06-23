@@ -17,7 +17,9 @@ public class DefaultDomainService implements DomainService {
   @Autowired
   private DomainDao domainDao;
 
-
+  /**
+   * SERVICE: Create new Domain
+   */
   @Transactional
   @Override
   public Domain createDomain(Domain domain) {

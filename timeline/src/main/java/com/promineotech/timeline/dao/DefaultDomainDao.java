@@ -22,6 +22,9 @@ public class DefaultDomainDao implements DomainDao {
   @Autowired
   private NamedParameterJdbcTemplate jdbcTemplate;
 
+  /**
+   * DAO: Save new Domain
+   */
   @Override
   public Domain saveDomain(String domainName, String domainDesc, String region) {
     SqlParams params = generateInsertSql(domainName, domainDesc, region);
@@ -63,8 +66,7 @@ public class DefaultDomainDao implements DomainDao {
     params.sql = sql;
     params.source.addValue("domain_name", domainName);
     params.source.addValue("domain_desc", domainDesc);
-    params.source.addValue("region", region);   
-    
+    params.source.addValue("region", region);    
     
     return params;
   }
@@ -87,6 +89,5 @@ public class DefaultDomainDao implements DomainDao {
   @Override
   public Optional<String> fetchRegion(String region) {
     return Optional.of(region);
-  }
- 
+  } 
 }

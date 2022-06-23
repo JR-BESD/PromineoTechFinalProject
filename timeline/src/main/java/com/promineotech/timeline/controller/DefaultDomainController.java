@@ -17,6 +17,9 @@ public class DefaultDomainController implements DomainController {
   @Autowired
   private DomainService domainService;
 
+  /**
+   * CONTROLLER: Create new Domain
+   */
   @Override
   public Domain createDomain(Domain domain) {
     log.debug("Domain={}", domain);

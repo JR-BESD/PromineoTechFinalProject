@@ -53,5 +53,4 @@ public class DefaultEventController implements EventController {
     log.debug("delete event={}",event);
     eventService.deleteEvent(event);
   }
-
 }

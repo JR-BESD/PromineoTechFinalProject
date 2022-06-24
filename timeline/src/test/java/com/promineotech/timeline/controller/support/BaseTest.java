@@ -16,33 +16,23 @@ public class BaseTest {
   @Autowired
   @Getter
   private TestRestTemplate restTemplate;
-  
-//  /**
-//   * 
-//   * @return
-//   */
-//  protected String getBaseUriForTimline() {
-//    return String.format("http://localhost:%d/timeline", serverPort);
-//  }
-  
-  /**
-   * 
-   * @return
+ 
+  /** 
+   * @return events uri
    */
   protected String getBaseUriForEvents() {
     return String.format("http://localhost:%d/events", serverPort);
   }
    
   /**
-   * 
-   * @return
+   * @return domains uri
    */
   protected String getBaseUriForDomains() {
     return String.format("http://localhost:%d/domains", serverPort);
   }
   
   /**
-   * @return
+   * @return people uri
    */
   protected String getBaseUriForPeople() {
     return String.format("http://localhost:%d/people", serverPort);

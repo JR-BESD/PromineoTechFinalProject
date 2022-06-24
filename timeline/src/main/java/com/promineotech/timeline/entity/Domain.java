@@ -32,5 +32,3 @@ public class Domain {
   @Length(max = 30)
   private String region;  
  }
-
-

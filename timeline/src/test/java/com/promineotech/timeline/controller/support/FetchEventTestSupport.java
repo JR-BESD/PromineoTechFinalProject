@@ -13,6 +13,10 @@ import com.promineotech.timeline.entity.Event;
  *
  */
 public class FetchEventTestSupport extends BaseTest{
+  
+  /**
+   * @return expected Test Result
+   */
   protected List<Event> buildExpected() {
     List<Event> list = new LinkedList<>();
     //@formatter:off

@@ -7,19 +7,17 @@ package com.promineotech.timeline.controller.support;
 public class CreatePersonTestSupport extends BaseTest {
 
   /**
-   * 
-   * @return
+   * @return JSON person insertion
    */
   protected String createPersonBody() {
     //@formatter:off
     String body = "{\n"
-        + "   \"name\":\"Some Name\",\n"
-        + "   \"race\":\"Some Race\",\n"
-        + "   \"description\":\"Some Description\",\n" 
+        + "   \"name\":\"TEST\",\n"
+        + "   \"race\":\"Race\",\n"
+        + "   \"description\":\"Description\",\n" 
         + "   \"domain\":\"Barovia\"\n"
         + "}";
     //@formatter:on
     return body;
-
   }
 }

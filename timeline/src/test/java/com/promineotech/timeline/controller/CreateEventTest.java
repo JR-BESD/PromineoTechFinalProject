@@ -59,9 +59,6 @@ class CreateEventTest extends CreateEventTestSupport {
     
     assertThat(event.getEventName()).isEqualTo("Strahd dominates");  
     assertThat(domain == "Barovia");
-    assertThat(person == "Count Strahd von Zarovich");
-    
-    
-        
+    assertThat(person == "Count Strahd von Zarovich");     
   }
 }

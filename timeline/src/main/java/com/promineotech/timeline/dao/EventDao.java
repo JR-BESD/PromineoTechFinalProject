@@ -67,10 +67,5 @@ public interface EventDao {
    * @param eventDesc
    * @param timelineDate
    */
-  void updateEvent(String eventName, String eventDesc, String timelineDate);
-
-
-
-  
-  
+  void updateEvent(String eventName, String eventDesc, String timelineDate);  
 }

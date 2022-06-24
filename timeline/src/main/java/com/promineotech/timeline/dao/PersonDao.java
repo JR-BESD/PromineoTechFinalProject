@@ -41,5 +41,4 @@ public interface PersonDao {
    * @return
    */
   Optional<String> fetchDomain(String domain);
-
 }

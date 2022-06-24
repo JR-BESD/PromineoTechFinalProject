@@ -25,5 +25,4 @@ public class DefaultPersonController implements PersonController {
     log.debug("Person={}", person);
     return personService.createPerson(person);
   }
-
 }

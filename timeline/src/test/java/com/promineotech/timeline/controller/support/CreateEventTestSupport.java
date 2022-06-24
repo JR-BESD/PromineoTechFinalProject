@@ -7,13 +7,12 @@ package com.promineotech.timeline.controller.support;
 public class CreateEventTestSupport extends BaseTest {
 
   /**
-   * 
-   * @return
+   * @return JSON event insertion
    */
   protected String createEventBody() {
     //@formatter:off
     String body = "{\n"
-        + "   \"eventName\":\"Strahd dominates\",\n"
+        + "   \"eventName\":\"TEST\",\n"
         + "   \"eventDesc\":\"Strahd flexes his muscles to show domination over Barovia.\",\n"
         + "   \"timelineDate\":\"352\",\n"
         + "   \"domainLord\":\"Count Strahd von Zarovich\",\n"
@@ -27,5 +26,4 @@ public class CreateEventTestSupport extends BaseTest {
     //@formatter:on
     return body;
   }
-
 }

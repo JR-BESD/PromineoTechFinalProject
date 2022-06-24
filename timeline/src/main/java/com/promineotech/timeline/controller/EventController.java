@@ -205,5 +205,3 @@ public interface EventController {
       @RequestParam(required = false)String timelineDate);
   //@formatter:on
 }
-
-  

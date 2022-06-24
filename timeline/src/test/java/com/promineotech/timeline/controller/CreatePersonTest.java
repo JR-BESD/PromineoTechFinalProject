@@ -52,7 +52,5 @@ class CreatePersonTest extends CreatePersonTestSupport {
     
     assertThat(person.getName()).isEqualTo("Some Name");
     assertThat(person.getRace()).isEqualTo("Some Race");
-
-  }
-  
+  }  
 }

@@ -53,12 +53,5 @@ class CreateDomainTest extends CreateDomainTestSupport {
     assertThat(domain.getDomainName()).isEqualTo("Kartakass");
     assertThat(domain.getDomainDesc()).isNotNull();
     assertThat(domain.getRegion()).isEqualTo("The Southern Core");
-
   }
-
-  /**
-   * @return
-   */
-
-
 }

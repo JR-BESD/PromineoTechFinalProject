@@ -14,5 +14,4 @@ public interface DomainService {
    * @return
    */
   Domain createDomain(Domain domain);
-
 }

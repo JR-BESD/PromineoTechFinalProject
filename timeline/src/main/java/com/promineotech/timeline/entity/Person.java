@@ -31,7 +31,4 @@ public class Person {
   @NotNull
   @Length(max = 30)
   private String domain;
-  
-  
-
 }

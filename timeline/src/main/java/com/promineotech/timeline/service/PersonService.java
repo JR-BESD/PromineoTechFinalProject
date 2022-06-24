@@ -9,5 +9,4 @@ import com.promineotech.timeline.entity.Person;
 public interface PersonService {
   
   Person createPerson(Person person);
-
 }

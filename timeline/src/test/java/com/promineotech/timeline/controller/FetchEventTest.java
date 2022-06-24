@@ -136,7 +136,4 @@ class FetchEventTest extends FetchEventTestSupport {
       assertErrorMessageValid(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
-
-
 }

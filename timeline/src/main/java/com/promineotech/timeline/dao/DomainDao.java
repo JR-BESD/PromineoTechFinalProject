@@ -36,4 +36,3 @@ public interface DomainDao {
    */
   Optional<String> fetchRegion(String region);
 }
-

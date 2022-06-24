@@ -121,5 +121,4 @@ public class DefaultEventService implements EventService {
   private List<String> getDomains(Event event) {
     return eventDao.fetchDomains(event.getDomains());
   }
-
 }

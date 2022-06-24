@@ -35,8 +35,4 @@ public interface EventService {
    * @return
    */
   void updateEvent(String eventName, String eventDesc, String timelineDate);
-
- 
-
-
 }

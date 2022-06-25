@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import com.promineotech.timeline.entity.Domain;
 import com.promineotech.timeline.entity.Person;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,7 +38,7 @@ public interface PersonController {
               description = "The created Person is returned",
               content = @Content(
                   mediaType = "application/json",
-                  schema = @Schema(implementation = Domain.class))),
+                  schema = @Schema(implementation = Person.class))),
           @ApiResponse(
               responseCode = "400",
               description = "The request parameters are invalid",

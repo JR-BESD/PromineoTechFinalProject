@@ -14,15 +14,33 @@ INSERT INTO events(event_name, event_desc, timeline_date) VALUES
 ('BC begins', 'Beginning of the Barovian Calendar.', 1),
 ('Barovia founded', 'Nation of Barovia forged of independent city-states by the von Zarovich family.', 1),
 ('Borjia-Barovia alliance', 'The founding of Barovia also united the City States to the west into the semi-independent region of Borjia. The wealthy mercantile families, Cosco, Boritsi, Olszanik and Dilisnya use their wealth to purchase titles in the new country of Barovia and in Borjia, strengthening the ties between the two regions to the extent where Borjia was seen as part of Barovia.', 1),
---('Name', 'Description', 'date')
-
-
-
 ('First domain', 'Summer: The massacre at the Wedding of Sergei von Zarovich occurs. Barovia forms as the first Ravenloft domain due the actions of Strahd von Zarovich. Strahd turns into a vampire.', 351),
 ('Duncan MacFarn''s death', 'On the anniversary of their murder, Donal MacFarn and the Ghosts of Hospitality possess the stones of Castle Forfarmax and kill the traitor Duncan MacFarn and his retinue of servants and guests, leaving Castle Forfarmax empty and abandoned for centuries.', 351),
 ('Tatyana''s first reincarnation', 'First known reincarnation of Tatyana appears. Strahd meets a young woman named Marina when he purchases some spellbooks from her adoptive father, Burgomaster Lazlo, in the guise of Vasili Von Holtz.', 400),
 ('Azalin''s arrival', 'Azalin enters Ravenloft and arrives in Barovia.', 542),
-('Birth of Vlad', 'Vlad Drakov is born on the outlander world of Krynn.', 665);
+('Birth of Vlad', 'Vlad Drakov is born on the outlander world of Krynn.', 665),
+('Jander slays Cassiar','Speculation - Toril: Jander slays his master, Cassiar; he visits his old companion, Lyria “the Lovely” in Waterdeep in hopes of a cure. Jander learns there is no cure for undeath. (701 DR) ','82'),
+('Istar''s Kingpriest','Speculation - Krynn: On the continent of Ansalon, Istar installs a Kingpriest. (280 PC)','86'),
+('Fallen Myth','Speculation -  Toril: The fall of Myth Drannor. (714 DR: Year of Doom) ','95'),
+('Kingpriest contruct','Speculation -  Krynn: Construction begins on the Temple of the Kingpriest (260 PC).','103'),
+('Spellseer construct','Speculation -  Toril: Tregas Spellseer begins construction on Castle Spellseer in Amn, a few miles south of the Tethyr Road. (755 DR: Year of the Enigma).','136'),
+('Kingpriest complete','Speculation -  Krynn: Temple of the Kingpriest completed (212 PC).','151'),
+('First Shadows','In an unknown time centuries before this event, the sorcerer-fiend Gwydion, an alien being of horrific power from the Demiplane of Shadow, drew the ellefolk race into his realm to serve him. Pleased with his ellefolk slaves’ centuries of service, Gwydion infuses them with the essence of shadow, his “gift” transforming them from ellefolk to the “fey.” On the same day, twins are born to the fey’s leader, Arak the Erlking, and his wife Finngalla. These infants, Loht and his sister Maeve, are the first true shadow elves. Finngalla dies in childbirth.','151'),
+('Rauxes Overking','Oerth: In the region called the Flaeness, the Overking is crowned in Rauxes; frontiers of Great Kingdom reach the City of Greyhawk. (CY 1; beginning of Common Years) ','152'),
+('Unnamed Thorp','In a unnamed world the a small fishing thorp is founded in Arden Bay, the thorp will one day become Mordentshire.','157'),
+('Daglan born','Daglan Daegon born in a “faraway land.” ','158'),
+('Spellseer death','Speculation -  Toril: Tregas Spellseer dies. (783 DR)','164'),
+('Zarovich blessing','The formal founding of the Barovian state Church of Andral, with the blessing of the Von Zarovich family.','168'),
+('Spellseer complete','Speculation -  Toril: Construction of Castle Spellseer is completed. (795 DR: Year of the Firehawk).','176'),
+('Renie hamlet','Jacques Renier brings his family here and takes leadership of the then hamlet of Mordentshire. He eventually builds Gryphon Manor. Within the year, Renier and his family flee the house, and Gryphon Manor’s reputation as an accursed place begins','180'),
+('Kartak born','Speculation -  Toril: Kartak Spellseer born (802 DR).','183'),
+('Flora born','Forfar: Flora ApBlanc is born to Lord Keegan ApBlanc and Lady Eileen ApBlanc (1573 FC).','186'),
+('Gundar born','Gundar born in Prime Material Hunadora, which has just been conquered by the tyrant Otto III.','193'),
+('Tristen kills Gilan','1825 Forfarian Calendar'': Tristen ApBlanc accidentally kills Gilan ApBlanc when he sends his wolves after the boy''s dog Petitcrieu.','439'),
+('Strahd Diary','According to a version of Strahd''s diary ready by van Richten in 736 BC, Alina, the second reincarnation of Tatyana Federovna dies of fever in this year of 445 BC. Count Strahd attempts suicide with Alina in hand, but the Mists prevent him and snatch away her corpse. However, this goes against a version of Strahd''s diary read by Jander Sunstar that says Tatyana''s second reincarnation was Olya Ivanova who died 30 years later in 475 BC',445),
+('Tristen kills Morholt','1833 Forfarian Calendar: Tristen ApBlanc mistakenly murders the sleeping Morholt ApBlanc, intending instead to murder his teacher Duncan ApDuguid.',446),
+('First Dead Mans War','First Dead Man’s War waged by Falkovnia against Darkon.',700);
+
 
 
 
@@ -75,12 +93,14 @@ Davion can only be accessed through the Nightmare Lands. The portal to Davion th
 ('Souragne', 'Souragne is a domain based around stereotypical Louisiana voodoo, and as such consists primarily of a vast swamp. The two most important individuals in Souragne are the darklord Anton Misroi, a zombie lord, and Chicken Bone, the most powerful voodan (Ravenloft''s equivalent of a houngan) in the swamp.', 'Island'),
 ('Sri Raji', 'formerly an island of terror, Sri Raji is a domain in the Verduous Lands cluster ruled by the Maharaja Arijani. The Verduous Lands cluster does not have a moon with potentially interesting consequences for lycanthropes having some part of the lunar cycle as their trigger condition. Equally, there should be no tides.', 'Island'),
 ('Tepest', 'Tepest is a rural and heavily forested domain with a fairy tale like quality to it. Although the land is infested with many dangers- malevolent goblins and insidious hags- it is the beguiling and manipulative influence of the fey that bothers the Tepestani the most. Ever since the Grand Conjunction of 740 BC that resulted in the Shadow Rift eating up several neighboring lands, the Tepestani Inquisition has served to root out the fey and their agents. Unfortunately, the Inquisition is not terribly discrete in how it defines their targets- such as elves, gnomes, sorcerers- are all prime targets for being hunted. As with any witch hunt, sometimes entirely innocent targets find undeserved fates. Such false accusations have caused Wyan of Viktal, the Inquisition''s founder, to put serious limits on the growth of the Inquisition''s reach. However, the resurgence of the Inquisition''s popularity and power may have resulted in a movement behind his ability to control.', 'The Northern Core'),
-('Timor', 'Formerly an island of terror[6], Timor is now part of the Zherisia cluster, consisting of the sewer and underground beneath Paridon. It is ruled by The Hive Queen, although by some accounts she is not the domain''s first darklord. This dread realm is not one populated humans but instead is dominated by the savage and elusive aberrations known as the marikith.', 'The Northern Core'),
+('Timor', 'Formerly an island of terror, Timor is now part of the Zherisia cluster, consisting of the sewer and underground beneath Paridon. It is ruled by The Hive Queen, although by some accounts she is not the domain''s first darklord. This dread realm is not one populated humans but instead is dominated by the savage and elusive aberrations known as the marikith.', 'The Northern Core'),
 ('Tovag', 'Medival', 'The Burning Peaks (Cluster)'),
 ('Valachan', 'The chilly, heavily forested lands of Valachan sits in the southwest most part of the Core. This domain is home to the Valachani, an industrious and self-sufficiency-minded people. The people speak of the forest''s denizens in myth and legend, with the panther as the most admired yet the most feared. Life inside of the communities is generally calm. However, the people are terrorized by the enforcers of Baron Urik von Kharkov and their leader, Lady Adeline.', 'The Southern Core'),
 ('Vechor', 'Vechor an ever-changing domain is ruled by Easan the Mad.', 'The Nocturnal Sea'),
 ('Verbrek', 'Verbrek is a land of rugged forests and scattered settlements. In this wild and woolly domain, it is not the human that dominates but rather the wolf. More specifically, the werewolf, as werewolves both outnumber and out-power the humans of Verbrek. The Verbrekers can''t even completely trust their own, as the sheepskinner werewolves dons the guise of humanity and live in seemingly normal communities.', 'The Southern Core'),
 ('Vorostokov', 'Vorostokov is the domain ruled by Gregor Zolnik, originally an Island of Terror, now part of the Frozen Reaches.', 'Island/Frozen Reaches');
+
+
 
 
 
@@ -137,10 +157,20 @@ INSERT INTO people(name, race, description, domain_id) VALUES
 -- domain_events
 INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First domain'),(SELECT domain_id FROM domains WHERE domain_name = 'Barovia'));
 INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Duncan MacFarn''s death'),(SELECT domain_id FROM domains WHERE domain_name = 'Barovia'));
-
+INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Tristen kills Gilan'),(SELECT domain_id FROM domains WHERE domain_name = 'Forlorn'));
+INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Strahd Diary'),(SELECT domain_id FROM domains WHERE domain_name = 'Barovia'));
+INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Tristen kills Morholt'),(SELECT domain_id FROM domains WHERE domain_name = 'Forlorn'));
+INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First Dead Mans War'),(SELECT domain_id FROM domains WHERE domain_name = 'Darkon'));
+INSERT INTO domain_events(event_id, domain_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First Dead Mans War'),(SELECT domain_id FROM domains WHERE domain_name = 'Falkovnia'));
 
 -- event_people
 INSERT INTO event_people(event_id, person_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First domain'),(SELECT person_id FROM people WHERE name = 'Count Strahd von Zarovich'));
+INSERT INTO event_people(event_id, person_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Strahd Diary'),(SELECT person_id FROM people WHERE name = 'Count Strahd von Zarovich'));
+INSERT INTO event_people(event_id, person_id) VALUES((SELECT event_id FROM events WHERE event_name = 'Tristen kills Morholt'),(SELECT person_id FROM people WHERE name = 'Tristen ApBlanc'));
+INSERT INTO event_people(event_id, person_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First Dead Mans War'),(SELECT person_id FROM people WHERE name = 'Vlad Drakov'));
+INSERT INTO event_people(event_id, person_id) VALUES((SELECT event_id FROM events WHERE event_name = 'First Dead Mans War'),(SELECT person_id FROM people WHERE name = 'Azalin Rex'));
+
+
 
 -- domain_lords
 INSERT INTO domain_lords(person_id, domain_id) VALUES

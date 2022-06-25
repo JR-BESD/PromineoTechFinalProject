@@ -17,7 +17,7 @@ CREATE TABLE events (
 	
 CREATE TABLE  domains (
 	domain_id INT NOT NULL AUTO_INCREMENT,
-	domain_name VARCHAR(20) NOT NULL,
+	domain_name VARCHAR(50) NOT NULL,
 	domain_desc VARCHAR(2000),
 	region VARCHAR(50),	
 	PRIMARY KEY (domain_id),

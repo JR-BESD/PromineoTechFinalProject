@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import javax.validation.ConstraintViolationException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,6 +26,13 @@ public class GlobalErrorHandler {
   private enum LogStatus {
     STACK_TRACE, MESSAGE_ONLY
   }
+  
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  @ResponseStatus(code = HttpStatus.NOT_FOUND)
+  public Map<String, Object> handleDataIntegrityViolationException(DataIntegrityViolationException e , WebRequest webRequest){
+    return createExceptionMessage(e, HttpStatus.NOT_FOUND, webRequest, LogStatus.MESSAGE_ONLY);
+  }
+  
   @ExceptionHandler(MethodArgumentTypeMismatchException.class)
   @ResponseStatus(code = HttpStatus.BAD_REQUEST)
   public Map<String, Object> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, WebRequest webRequest){

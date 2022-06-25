@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
  */
 @Validated
 @RequestMapping("/domains")
-@OpenAPIDefinition(info = @Info(title = "Domain Post Service"),
+@OpenAPIDefinition(info = @Info(title = "Timeline Service"),
     servers = {@Server(url = "http://localhost:8080", description = "Local Server.")})
 
 public interface DomainController {

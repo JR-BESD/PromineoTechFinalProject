@@ -62,7 +62,7 @@ public interface EventController {
                   mediaType = "application/json"))
       },
       parameters = {
-          @Parameter(name = "domain", allowEmptyValue = false, required = false, description = "A Domain name (i.e., 'Barovia'"),
+          @Parameter(name = "domain", allowEmptyValue = false, required = false, description = "A Domain name (i.e., 'Barovia')"),
           @Parameter(name = "date", allowEmptyValue = false, required = false, description = "A date on the Barovian Calender"),
           @Parameter(name = "person", allowEmptyValue = false, required = false, description = "A person's name")
           
@@ -108,7 +108,7 @@ public interface EventController {
                   mediaType = "application/json"))
       },
       parameters = {
-          @Parameter(name = "event", allowEmptyValue = false, required = false, description = "A Domain name (i.e., 'Barovia'")
+          @Parameter(name = "event", allowEmptyValue = false, required = false, description = "An Event Name (i.e., 'First domain')")
          
           
       })
@@ -146,7 +146,7 @@ public interface EventController {
                   mediaType = "application/json"))
       },
       parameters = {
-         @Parameter(name = "eventRelationship",             
+         @Parameter(name = "event",             
              required = false, 
              description = "The Event as JSON")
          }

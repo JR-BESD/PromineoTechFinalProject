@@ -2,7 +2,10 @@ package com.promineotech.timeline.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -35,41 +38,48 @@ public class DefaultEventDao implements EventDao {
    */
   @Override
   public List<Event> fetchEvents(String domain, Long date, String person) {
-    log.debug("DAO: domain={}, date={}, person = {}", domain, date, person);
+    log.debug("DAO: domain={}, date={}, person = {}", domain, date, person);    
     String sql = "";
     if (domain != null && date != null && person != null) {
       //@formatter:off
-      sql = "SELECT * "
+      sql = ""
+          + "SELECT * "
           + "FROM events e "
           + "JOIN domain_events de ON e.event_id = de.event_id "
           + "JOIN event_people ep ON e.event_id = ep.event_id "
           + "JOIN domains d ON de.domain_id = d.domain_id "
           + "JOIN people p ON p.person_id = ep.person_id "
-          + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date AND name = :name";
+          + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date AND name = :name"
+          + "";
       //@formatter:on
     } else if (domain != null && date != null && person == null) {
     //@formatter:off
     sql = ""
-        + "SELECT e.event_id, domain_name, event_name, event_desc, timeline_date FROM domain_events de "
+        + "SELECT * "
+        + "FROM domain_events de "
         + "JOIN domains d ON d.domain_id = de.domain_id "
         + "JOIN events e ON e.event_id = de.event_id "
-        + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date;";
+        + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date"
+        + "";
     //@formatter:on
     } else if (domain != null && date == null && person == null) {
       //@formatter:off
         sql = ""
-            + "SELECT * FROM events e "
+            + "SELECT * "
+            + "FROM events e "
             + "JOIN domain_events de ON de.event_id = e.event_id "
             + "JOIN domains d ON de.domain_id = d.domain_id "
-            + "WHERE domain_name = :domain_name";
+            + "WHERE domain_name = :domain_name"
+            + "";
         //@formatter:on
 
     } else if (domain == null && date != null && person == null) {
       //@formatter:off
       sql = ""
-          + "SELECT * "
-          + "FROM events "
-          + "WHERE timeline_date = :timeline_date";
+          + "SELECT DISTINCT * "
+          + "FROM events e "
+          + "WHERE timeline_date = :timeline_date"
+          + "";
       //@formatter:on
 
     } else if (domain == null && date == null && person != null) {
@@ -88,7 +98,8 @@ public class DefaultEventDao implements EventDao {
           + "FROM events e "
           + "JOIN event_people ep ON e.event_id = ep.event_id "
           + "JOIN people p ON p.person_id = ep.person_id "
-          + "WHERE name = :name AND timeline_date = :timeline_date ";
+          + "WHERE name = :name AND timeline_date = :timeline_date"
+          + "";
       //@formatter:on
     } else if (domain != null && date == null && person != null) {
       //@formatter:off
@@ -99,29 +110,166 @@ public class DefaultEventDao implements EventDao {
           + "JOIN people p ON p.person_id = ep.person_id "
           + "JOIN domain_events de ON de.event_id = e.event_id "
           + "JOIN domains d ON d.domain_id = de.domain_id "
-          + "WHERE name = :name AND domain_name = :domain_name";
+          + "WHERE name = :name AND domain_name = :domain_name"
+          + "";
       //@formatter:on
     }
+
 
     Map<String, Object> params = new HashMap<>();
     params.put("domain_name", domain);
     params.put("timeline_date", date);
     params.put("name", person);
 
+
     return jdbcTemplate.query(sql, params, new RowMapper<>() {
 
       @Override
       public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
+        List<Long> events = generateSelectSql(domain, date, person);
+        List<Long> eventIds = new ArrayList<>(new LinkedHashSet<>(events));
+        for (Long eventId : eventIds) {
+          if (eventId == rs.getLong("event_id")) {
+            List<String> domains = new ArrayList<>(new LinkedHashSet<>(fetchDomains(eventId)));
+            List<String> people = new ArrayList<>(new LinkedHashSet<>(fetchPeople(eventId)));
+
         //@formatter:off
-        return Event.builder()
-            .eventId(rs.getLong("event_id"))
-            .eventName(rs.getString("event_name"))
-            .eventDesc(rs.getString("event_desc"))
-            .timelineDate(rs.getLong("timeline_date"))
-            .build();
-        //@formatter:on
+          return Event.builder()
+              .eventId(rs.getLong("event_id"))
+              .eventName(rs.getString("event_name"))
+              .eventDesc(rs.getString("event_desc"))
+              .timelineDate(rs.getLong("timeline_date"))
+              .domains(domains)
+              .people(people)
+              .build();
+          //@formatter:on 
+          }          
+        }
+        return null;
       }
     });
+  }
+
+  /**
+   * @param domain
+   * @param date
+   * @param person
+   * @return
+   */
+  private List<Long> generateSelectSql(String domain, Long date, String person) {
+    String sql = "";
+    if (domain != null && date != null && person != null) {
+      //@formatter:off
+      sql = "SELECT e.event_id "
+          + "FROM events e "
+          + "JOIN domain_events de ON e.event_id = de.event_id "
+          + "JOIN event_people ep ON e.event_id = ep.event_id "
+          + "JOIN domains d ON de.domain_id = d.domain_id "
+          + "JOIN people p ON p.person_id = ep.person_id "
+          + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date AND name = :name "
+          + "";
+      //@formatter:on
+    } else if (domain != null && date != null && person == null) {
+    //@formatter:off
+    sql = ""
+        + "SELECT e.event_id "
+        + "FROM domain_events de "
+        + "JOIN domains d ON d.domain_id = de.domain_id "
+        + "JOIN events e ON e.event_id = de.event_id "
+        + "WHERE domain_name = :domain_name AND timeline_date = :timeline_date "
+        + "";
+    //@formatter:on
+    } else if (domain != null && date == null && person == null) {
+      //@formatter:off
+        sql = ""
+            + "SELECT e.event_id "
+            + "FROM events e "
+            + "JOIN domain_events de ON de.event_id = e.event_id "
+            + "JOIN domains d ON de.domain_id = d.domain_id "
+            + "WHERE domain_name = :domain_name "
+            + "";
+        //@formatter:on
+
+    } else if (domain == null && date != null && person == null) {
+      //@formatter:off
+      sql = ""
+          + "SELECT e.event_id "
+          + "FROM events e "
+          + "WHERE timeline_date = :timeline_date "         
+          + "";
+      //@formatter:on
+
+    } else if (domain == null && date == null && person != null) {
+      //@formatter:off
+      sql = ""
+          + "SELECT e.event_id "
+          + "FROM events e "
+          + "JOIN event_people ep ON e.event_id = ep.event_id "
+          + "JOIN people p ON p.person_id = ep.person_id "
+          + "WHERE name = :name "
+          + "";
+      //@formatter:on
+    } else if (domain == null && date != null && person != null) {
+      //@formatter:off
+      sql = ""
+          + "SELECT e.event_id "
+          + "FROM events e "
+          + "JOIN event_people ep ON e.event_id = ep.event_id "
+          + "JOIN people p ON p.person_id = ep.person_id "
+          + "WHERE name = :name AND timeline_date = :timeline_date "
+          + "";
+      //@formatter:on
+    } else if (domain != null && date == null && person != null) {
+      //@formatter:off
+      sql = ""
+          + "SELECT e.event_id "
+          + "FROM events e "
+          + "JOIN event_people ep ON e.event_id = ep.event_id "
+          + "JOIN people p ON p.person_id = ep.person_id "
+          + "JOIN domain_events de ON de.event_id = e.event_id "
+          + "JOIN domains d ON d.domain_id = de.domain_id "
+          + "WHERE name = :name AND domain_name = :domain_name "
+          + "";
+      //@formatter:on
+    }
+    Map<String, Object> params = new HashMap<>();
+    params.put("domain_name", domain);
+    params.put("timeline_date", date);
+    params.put("name", person);
+
+    return jdbcTemplate.queryForList(sql, params, Long.class);
+  }
+
+  /**
+   * @param eventId
+   * @return
+   */
+  private List<String> fetchPeople(Long eventId) {
+    String sql = "" + "SELECT name " + "FROM people p " + "JOIN event_people ep "
+        + "ON ep.person_id = p.person_id " + "WHERE event_id = :event_id";
+
+    Map<String, Object> params = new LinkedHashMap<>();
+    params.put("event_id", eventId);
+
+
+
+    return jdbcTemplate.queryForList(sql, params, String.class);
+
+  }
+
+  /**
+   * @param eventId
+   * @return
+   */
+  private List<String> fetchDomains(Long eventId) {
+    String sql = "" + "SELECT domain_name " + "FROM domains d " + "JOIN domain_events de "
+        + "ON de.domain_id = d.domain_id " + "WHERE event_id = :event_id";
+
+    Map<String, Object> params = new LinkedHashMap<>();
+    params.put("event_id", eventId);
+
+    return jdbcTemplate.queryForList(sql, params, String.class);
+
   }
 
   @Override
@@ -187,6 +335,7 @@ public class DefaultEventDao implements EventDao {
     @Override
     public Event extractData(ResultSet rs) throws SQLException, DataAccessException {
       rs.next();
+
 
       //@formatter:off
       return Event.builder()
@@ -309,7 +458,7 @@ public class DefaultEventDao implements EventDao {
         + "INSERT INTO event_people (" 
         + "person_id, event_id" 
         + ") VALUES("
-        + "(SELECT person_id"
+        + "(SELECT person_id "
         + "FROM people "
         + "WHERE name = :name), :event_id" 
         + ")";
